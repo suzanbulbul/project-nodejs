@@ -8,7 +8,6 @@ const shema = mongoose.Schema({
     //Users tablosu ile ilişki kurulacak
     created_by: {
         type: mongoose.SchemaTypes.ObjectId,
-        required: false,
     },
 },
 {
