@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-const shema = mongoose.Schema({
+const schema = mongoose.Schema({
 
     // Roles tablosu ile ilişki kurulacak
+    //(_id -> karşılık gelir)
     role_id:{
-        type: mongoose.SchemaType.ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         required: true,
     },
+    //(key -> config/role_privileges.js içerisindeki key değeri)
     permission: {type: String, required: true},
     // Users tablosu ile ilişki kurulacak
     created_by:{
-        type: mongoose.SchemaType.ObjectId,
-        required: false,
+        type: mongoose.SchemaTypes.ObjectId,
     }
 },
 {
@@ -27,5 +28,5 @@ class RolePrivileges extends mongoose.Model{
 
 } 
 
-shema.loadClass(RolePrivileges)
-module.exports = mongoose.model("role_privileges", shema)
+schema.loadClass(RolePrivileges)
+module.exports = mongoose.model("role_privileges", schema)

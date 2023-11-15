@@ -8,14 +8,14 @@ const schema = mongoose.Schema({
 
     // Users tablosu ile ilişki kurulacak
     // email: {
-    //     type: mongoose.Schema.Types.String,
+    //     type: mongoose.SchemaTypes.String,
     //     required: true,
     // },
 
     email: {type: String, required: false},
     location: {type: String, required: false},
     proc_type: {type: String, required: false},
-    log: {type: mongoose.SchemaType.Mixed, required: false},
+    log: {type: mongoose.SchemaTypes.Mixed, required: false},
 
 },
 {

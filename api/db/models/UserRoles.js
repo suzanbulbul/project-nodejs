@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-const shmea = mongoose.Schema({
+const schema  = mongoose.Schema({
     // Roles ile ilişki kurulacak
     role_id: {
         type: mongoose.SchemaTypes.ObjectId,
@@ -25,6 +25,6 @@ class UserRoles extends mongoose.Model{
 
 }
 
-shema.loadClass(UserRoles)
+schema.loadClass(UserRoles)
 
-module.exports = mongoose.model("user_roles", shema)
+module.exports = mongoose.model("user_roles",schema )

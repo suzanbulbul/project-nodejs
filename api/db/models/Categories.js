@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
 
-const shema = mongoose.Schema({
+const schema = mongoose.Schema({
     name: {type: String, required: true},
     is_active: {type: Boolean, default: true},
 
@@ -22,5 +22,5 @@ class Categoies extends mongoose.Model{
 
 }
 
-shema.loadClass(Categoies)
-module.exports = mongoose.model("categories", shema)
+schema.loadClass(Categoies)
+module.exports = mongoose.model("categories", schema)

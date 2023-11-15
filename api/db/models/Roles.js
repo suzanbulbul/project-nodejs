@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const RolePrivileges = require("./RolePrivileges");
 mongoose.set('strictQuery', false);
 
 //required: true -> bu alanın boş geçilmesini engeller
@@ -13,18 +14,18 @@ const schema = mongoose.Schema({
     //Users tablosu ile ilişki kurulacak
     created_by: {
         type: mongoose.SchemaTypes.ObjectId,
-        required: true,
     }
-},{
+},
+{
     versionKey: false,
     timestamps: {
         createdAt: "created_at",
         updatedAt: "updated_at"
     }
-});
+}
+)
 
-class Roles extends mongoose.Modal{
-
+class Roles extends mongoose.Model {
 }
 
 schema.loadClass(Roles);

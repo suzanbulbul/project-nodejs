@@ -13,6 +13,8 @@ class Response {
       data,
     };
   }
+  
+  E11000
   static errorResponse(error) {
     //instanceof -> bir objenin bir class'a ait olup olmadığını kontrol eder.
     if(error instanceof CustomError) {
@@ -21,6 +23,15 @@ class Response {
         error: {
           message: error.message,
           description: error.description,
+        },
+      };
+    }
+    else if (error.message.includes("E11000")){
+      return {
+        code: Enum.HTTP_CODES.CONFLICT,
+        error: {
+          message: "Already Exist!",
+          description: "This data already exist in database",
         },
       };
     }

@@ -3,6 +3,7 @@ var router = express.Router();
 
 const Categories = require('../db/models/Categories');
 const Response = require('../lib/Response');
+
 const CustomError = require('../lib/Error');
 //Enum -> sabit değerlerin tutulduğu yapı.
 const Enum = require('../config/Enum');
@@ -19,10 +20,10 @@ router.get('/', async(req, res) => {
     res.status(errorResponse.code).json(errorResponse);  }
 });
 
-// POST /api/categories//add
+// CREATE /api/categories/add
 router.post('/add', async(req, res) => {
   let body = req.body;
-  console.log(body);
+
   try{
     // throw -> hata fırlatır.
     //name gönderilmediğinde hata fırlatır.
@@ -52,9 +53,10 @@ router.post('/add', async(req, res) => {
   }
 });
 
-// Update /api/categories/update
+// UPDATE /api/categories/update
 router.post('/update', async(req, res) => {
   let body = req.body;
+
   try{
     //id gönderilmediğinde hata fırlatır.
     if(!body._id) throw new CustomError(Enum.HTTP_CODES.BAD_REQUEST, 'Validation Error!', '_id field must be filled');
@@ -74,7 +76,7 @@ router.post('/update', async(req, res) => {
     res.status(errorResponse.code).json(errorResponse);  }
 });
 
-// delete /api/categories/delete
+// DELETE /api/categories/delete
 router.post('/delete', async(req, res) => {
   let body = req.body;
   try{
