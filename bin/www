@@ -18,7 +18,6 @@ const { CONNECTION_STRING, PORT } = require('../config');
 var port = normalizePort(PORT);
 app.set('port', port);
 
-app.use(cors());
 
 /**
  * Create HTTP server.
