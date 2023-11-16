@@ -6,6 +6,7 @@
 
 var app = require('../app');
 var debug = require('debug')('api:server');
+const cors = require('cors');
 var http = require('http');
 const Database = require('../db/Database');
 const { CONNECTION_STRING, PORT } = require('../config');
@@ -16,6 +17,8 @@ const { CONNECTION_STRING, PORT } = require('../config');
 
 var port = normalizePort(PORT);
 app.set('port', port);
+
+app.use(cors());
 
 /**
  * Create HTTP server.
