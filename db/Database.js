@@ -30,7 +30,7 @@ class Database {
                 }).then(() => console.log('Live DB Connected!'))
                   .catch(err => {
                     console.log(`DB Connection Error: ${err.message}`);
-                  });
+                });
             }
            
         } catch (err) {
