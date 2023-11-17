@@ -19,7 +19,7 @@ class Database {
                 console.log("DB Connecting...");
                 let db = await mongoose.connect(options.CONNECTION_STRING);
 
-                this.mongoConnection = db;cors
+                this.mongoConnection = db;
                 console.log("DB Connected.");
             }
             else{
